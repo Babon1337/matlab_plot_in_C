@@ -5,6 +5,8 @@ OBJ        = tmp
 BIN        = bin
 INCLUDE    = include
 
+Debug: all
+
 EGGPLOT_OBJ = \
 	$(OBJ)/linespec.o \
 	$(OBJ)/eggplot.o \
@@ -13,11 +15,11 @@ EGGPLOT_OBJ = \
 all: eggplot
 
 eggplot: $(EGGPLOT_OBJ)
-	$(CXX) -o $(BIN)/$@ $^ 
+	$(CXX) -o $(BIN)/$@ $^
 
 $(OBJ)/%.o: $(SRC)/%.cpp
 	$(CXX) $(FLAG) -c $< -o $@
 
 .phony: clean
 clean:
-	rm -rf $(OBJ)/*  
+	rm -rf $(OBJ)/*
